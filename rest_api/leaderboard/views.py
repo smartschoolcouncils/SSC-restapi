@@ -10,7 +10,7 @@ from drf_multiple_model.views import ObjectMultipleModelAPIView
 from itertools import chain
 
 def load_csv():
-	df = pd.read_csv(r'/Users/jackbigej/Desktop/Smart School Councils/rest_api/smart/SSC-restapi/rest_api/leaderboard/csv_files/school_questions.csv')
+	df = pd.read_csv(r'/Users/jackbigej/Desktop/Smart School Councils/rest_api/SSC-restapi/rest_api/leaderboard/csv_files/school_questions.csv')
 
 	today = datetime.date.today()
 
@@ -52,7 +52,7 @@ def load_csv():
 
 			today = datetime.date.today()
 
-			if school_name == "" or school_name == "Coronavirus Daily Debates" or school_name == None or school_name = "TEST":
+			if school_name == "" or school_name == "Coronavirus Daily Debates" or school_name == None or school_name == "TEST":
 				continue
 			
 			if isinstance(school_name, float):
@@ -80,7 +80,7 @@ def load_csv():
 
 			today = datetime.date.today()
 
-			if school_name == "" or school_name == "Coronavirus Daily Debates" or school_name == None or school_name = "TEST":
+			if school_name == "" or school_name == "Coronavirus Daily Debates" or school_name == None or school_name == "TEST":
 				continue
 			
 			if isinstance(school_name, float):
@@ -108,7 +108,7 @@ def load_csv():
 
 			today = datetime.date.today()
 
-			if school_name == "" or school_name == "Coronavirus Daily Debates" or school_name == None or school_name = "TEST":
+			if school_name == "" or school_name == "Coronavirus Daily Debates" or school_name == None or school_name == "TEST":
 				continue
 			
 			if isinstance(school_name, float):
@@ -133,7 +133,7 @@ def load_csv():
 		question = row['Question']
 
 
-		if school_name == "" or school_name == "Coronavirus Daily Debates" or school_name == None or school_name = "TEST":
+		if school_name == "" or school_name == "Coronavirus Daily Debates" or school_name == None or school_name == "TEST":
 			continue
 		
 		if isinstance(school_name, float):
