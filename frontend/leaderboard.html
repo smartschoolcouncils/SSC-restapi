@@ -1,0 +1,105 @@
+<style>
+  .w3-table-all table-large tr{
+   	font-family:"Fjalla One" 
+  }
+</style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<font face="Fjalla One">
+<h4>All Time </h4>
+<table id=topAllTimeTable class='w3-table-all table-large'>
+  
+  <thead>
+    <tr>
+      	<td>Rank</td>
+    	<td>School</td>
+    	<td>Class Meetings</td>
+  	</tr>
+  </thead>
+</table>
+
+<h4>This Year </h4>
+<table id=topYearTable class='w3-table-all table-large'>
+  <thead>
+    <tr>
+      	<td>Rank</td>
+    	<td>School</td>
+    	<td>Class Meetings</td>
+  	</tr>
+  </thead>
+</table>
+
+<h4>This Term </h4>
+
+<table id=topTermTable class='w3-table-all table-large'>
+  <thead>
+    <tr>
+      	<td>Rank</td>
+    	<td>School</td>
+    	<td>Class Meetings</td>
+  	</tr>
+  </thead>
+</table>
+  
+<h4>This Month </h4>
+
+<table id=topMonthTable class='w3-table-all table-large'>
+  <thead>
+    <tr>
+      	<td>Rank</td>
+    	<td>School</td>
+    	<td>Class Meetings</td>
+  	</tr>
+  </thead>
+</table>
+</font>
+<script>
+  var topAllTimeUrl = "http://127.0.0.1:8000/topalltime/?format=json";
+  var topYearUrl = "http://127.0.0.1:8000/topyear/?format=json";
+  var topTermUrl = "http://127.0.0.1:8000/topterm/?format=json";
+  var topMonthUrl = "http://127.0.0.1:8000/topmonth/?format=json";
+  
+  document.getElementById("topAllTimeTable").addEventListener("load", loadLeaderBoard(topAllTimeUrl, "topAllTimeTable", "total_cm"));
+  document.getElementById("topYearTable").addEventListener("load", loadLeaderBoard(topYearUrl, "topYearTable", "year_cm"));
+   document.getElementById("topTermTable").addEventListener("load", loadLeaderBoard(topTermUrl, "topTermTable", "term_cm"));
+  document.getElementById("topMonthTable").addEventListener("load", loadLeaderBoard(topMonthUrl, "topMonthTable", "month_cm"));
+  
+  function loadLeaderBoard(url, topTable, cm_type){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", url, true);
+    xhttp.onreadystatechange = function(){
+      if (this.readyState == 4 && this.status == 200){
+        var topDict = JSON.parse(this.responseText);
+        console.log(topDict);
+        var table = document.getElementById(topTable);
+        var topList = topDict['results'];
+        var j = 0;
+        var rank = 1;
+        while (rank < 5){
+          if (j > 4){
+           	if (topList[j][cm_type] != topList[j-1][cm_type]){
+              rank = 5;
+              continue;
+            }
+          }else if (j > 0){
+         	if (topList[j][cm_type] != topList[j-1][cm_type]){
+              rank++;
+            }
+          }
+          
+          var row = table.insertRow(-1);
+          var rank_col = row.insertCell(0);
+          var school_name = row.insertCell(1);
+          var class_meetings = row.insertCell(2);
+          rank_col.innerHTML = rank;
+          school_name.innerHTML = topList[j]['name'];
+          class_meetings.innerHTML = topList[j][cm_type];
+          j++;
+        }
+      }
+    };
+    xhttp.send();
+  }
+</script>
+
+</body>

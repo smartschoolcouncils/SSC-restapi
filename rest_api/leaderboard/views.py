@@ -133,7 +133,7 @@ def load_csv():
 		question = row['Question']
 
 
-		if school_name == "" or school_name == "Coronavirus Daily Debates" or school_name == None or school_name == "TEST":
+		if school_name == "" or school_name == "Coronavirus Daily Debates" or school_name == None or school_name == "test":
 			continue
 		
 		if isinstance(school_name, float):
