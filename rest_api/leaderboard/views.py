@@ -5,12 +5,9 @@ from leaderboard.serializers import UserSerializer, GroupSerializer, SchoolSeria
 from leaderboard.models import School, ClassMeeting
 import pandas as pd
 import datetime
-import logging
-from drf_multiple_model.views import ObjectMultipleModelAPIView
-from itertools import chain
 
 def load_csv():
-	df = pd.read_csv(r'/Users/jackbigej/Desktop/Smart School Councils/rest_api/SSC-restapi/rest_api/leaderboard/csv_files/school_questions.csv')
+	df = pd.read_csv(r'/home/ssc/SmartSchoolCouncils/rest_api/SSC-restapi/rest_api/leaderboard/csv_files/school_questions.csv')
 
 	today = datetime.date.today()
 
@@ -196,8 +193,7 @@ class SchoolViewSet(viewsets.ModelViewSet):
 class TopAllTimeViewSet(viewsets.ModelViewSet):
 	
 	load_csv()
-	top_schools = School.objects.order_by('-total_cm').values_list('total_cm', flat=True).distinct()
-	queryset = School.objects.order_by('-total_cm').filter(total_cm__in=top_schools[:9])
+	queryset = School.objects.order_by('-total_cm')
 
 	serializer_class = SchoolSerializer
 
@@ -206,8 +202,7 @@ class TopAllTimeViewSet(viewsets.ModelViewSet):
 
 class TopYearViewSet(viewsets.ModelViewSet):
 	load_csv()
-	top_schools = School.objects.order_by('-year_cm').values_list('year_cm', flat=True).distinct()
-	queryset = School.objects.order_by('-year_cm').filter(year_cm__in=top_schools[:9])
+	queryset = School.objects.order_by('-year_cm')
 
 	serializer_class = SchoolSerializer
 	
@@ -215,8 +210,7 @@ class TopYearViewSet(viewsets.ModelViewSet):
 
 class TopTermViewSet(viewsets.ModelViewSet):
 	load_csv()
-	top_schools = School.objects.order_by('-term_cm').values_list('term_cm', flat=True).distinct()
-	queryset = School.objects.order_by('-term_cm').filter(term_cm__in=top_schools[:9])
+	queryset = School.objects.order_by('-term_cm')
 
 	serializer_class = SchoolSerializer
 	
@@ -224,9 +218,9 @@ class TopTermViewSet(viewsets.ModelViewSet):
 
 class TopMonthViewSet(viewsets.ModelViewSet):
 	load_csv()
-	top_schools = School.objects.order_by('-month_cm').values_list('month_cm', flat=True).distinct()
-	queryset = School.objects.order_by('-month_cm').filter(month_cm__in=top_schools[:9])
+	queryset = School.objects.order_by('-month_cm')
 
 	serializer_class = SchoolSerializer
 	
 	permission_classes = [permissions.AllowAny]
+
