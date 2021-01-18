@@ -224,3 +224,11 @@ class TopMonthViewSet(viewsets.ModelViewSet):
 	
 	permission_classes = [permissions.AllowAny]
 
+class MostRecentQViewSet(viewsets.ModelViewSet):
+	load_csv()
+	queryset = ClassMeeting.objects.order_by('-date')
+
+	serializer_class = ClassMeetingSerializer
+
+	permission_classes = [permissions.AllowAny]
+

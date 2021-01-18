@@ -26,6 +26,7 @@ router.register(r'topalltime', views.TopAllTimeViewSet, 'topalltime')
 router.register(r'topyear', views.TopYearViewSet, 'topyear')
 router.register(r'topterm', views.TopTermViewSet, 'topterm')
 router.register(r'topmonth', views.TopMonthViewSet, 'topmonth')
+router.register(r'mostrecentq', views.MostRecentQViewSet, 'mostrecentq')
 
 
 urlpatterns = [
