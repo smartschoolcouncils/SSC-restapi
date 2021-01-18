@@ -26,7 +26,7 @@ SECRET_KEY = 'qf*ei$4_0y2x%_w!8=ztkljukrxxowizj_7-tj2njhmg+)^=z*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['46.101.51.148']
+ALLOWED_HOSTS = ['46.101.51.148', 'www.classmeetingleaderboard.cf', 'classmeetingleaderboard.cf']
 
 
 # Application definition
@@ -140,7 +140,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = '/home/ssc/SmartSchoolCouncils/rest_api/static'
+MEDIA_ROOT = '/home/scc/SmartSchoolCouncils/rest_api/media'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
