@@ -66,7 +66,20 @@ CORS_ALLOW_CREDENTIAL = False
 CORS_ALLOWED_ORIGINS = [
 	"https://smartschoolcouncils.squarespace.com",
 	"https://home.smartschoolcouncils.org.uk",
-
+	"https://173.245.48.0",
+	"https://103.21.244.0",
+	"https://103.22.200.0",
+	"https://103.31.4.0",
+	"https://141.101.64.0",
+	'https://108.162.192.0',
+	'https://190.93.240.0',
+	'https://188.114.96.0',
+	'https://197.234.240.0',
+	'https://198.41.128.0',
+	'https://162.158.0.0',
+	'https://104.16.0.0',
+	'https://172.64.0.0',
+	'https://131.0.72.0',
 ]
 
 ROOT_URLCONF = 'rest_api.urls'
@@ -140,8 +153,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/ssc/SmartSchoolCouncils/rest_api/static'
-MEDIA_ROOT = '/home/scc/SmartSchoolCouncils/rest_api/media'
+STATIC_ROOT = '/home/ssc/SmartSchoolCouncils/rest_api/SSC-restapi/static'
+MEDIA_ROOT = '/home/scc/SmartSchoolCouncils/rest_api/SSC-restapi/media'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

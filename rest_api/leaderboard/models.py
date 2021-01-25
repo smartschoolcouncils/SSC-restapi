@@ -1,5 +1,5 @@
 from django.db import models
-from django_mysql.models import JSONField
+#from django_mysql.models import JSONField
 import hashlib
 
 # Create your models here.
@@ -17,6 +17,7 @@ class ClassMeeting(models.Model):
 	date = models.DateField(null=True, blank=True)
 	school = models.ForeignKey(School, on_delete=models.CASCADE, null=True, blank=True)
 
+'''
 class WordDict(models.Model):
 	question = models.CharField(max_length=1000, default="")
 	wd = JSONField()
@@ -43,9 +44,10 @@ class WordDict(models.Model):
 		if isinstance(value, dict):
 			value = json.dumps(value, cls=DjangoJSONEncoder)
 		return value
+'''
 
 class MD5_Hash(models.Model):
-	md5 = models.CharField()
+	md5 = models.CharField(max_length=1000, default="")
 
 	def same_hash():
 		BUF_SIZE = 65536

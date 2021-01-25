@@ -237,7 +237,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 class SchoolViewSet(viewsets.ModelViewSet):
 
-	if !check_hash:
+	if not check_hash:
 		load_csv()
 	
 	queryset = School.objects.all()
@@ -247,7 +247,7 @@ class SchoolViewSet(viewsets.ModelViewSet):
 
 class TopAllTimeViewSet(viewsets.ModelViewSet):
 	
-	if !check_hash:
+	if not check_hash:
 		load_csv()
 	
 	queryset = School.objects.order_by('-total_cm')[:10]
@@ -259,7 +259,7 @@ class TopAllTimeViewSet(viewsets.ModelViewSet):
 
 class TopYearViewSet(viewsets.ModelViewSet):
 
-	if !check_hash:
+	if not check_hash:
 		load_csv()
 
 	queryset = School.objects.order_by('-year_cm')[:10]
@@ -269,7 +269,7 @@ class TopYearViewSet(viewsets.ModelViewSet):
 	permission_classes = [permissions.AllowAny]
 
 class TopTermViewSet(viewsets.ModelViewSet):
-	if !check_hash:
+	if not check_hash:
 		load_csv()
 	
 	queryset = School.objects.order_by('-term_cm')[:10]
@@ -279,7 +279,7 @@ class TopTermViewSet(viewsets.ModelViewSet):
 	permission_classes = [permissions.AllowAny]
 
 class TopMonthViewSet(viewsets.ModelViewSet):
-	if !check_hash:
+	if not check_hash:
 		load_csv()
 
 	queryset = School.objects.order_by('-month_cm')[:10]
@@ -289,7 +289,7 @@ class TopMonthViewSet(viewsets.ModelViewSet):
 	permission_classes = [permissions.AllowAny]
 
 class MostRecentQViewSet(viewsets.ModelViewSet):
-	if !check_hash:
+	if not check_hash:
 		load_csv()
 
 	queryset = ClassMeeting.objects.order_by('-date')[:10]
@@ -298,6 +298,7 @@ class MostRecentQViewSet(viewsets.ModelViewSet):
 
 	permission_classes = [permissions.AllowAny]
 
+'''
 class TopTrendingCMQViewSet(viewsets.ModelViewSet):
 	if !check_hash:
 		load_csv()
@@ -305,7 +306,7 @@ class TopTrendingCMQViewSet(viewsets.ModelViewSet):
 	queryset = WordDict.objects.annotate(cm_count=Count('cms')).order_by('-cm_count')[:10]
 	serializer_class = WordDictSerializer
 	permission_classes = [permissions.AllowAny]
-
+'''
 	
 	
 
